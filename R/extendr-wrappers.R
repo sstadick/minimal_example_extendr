@@ -12,3 +12,17 @@ NULL
 #' @export
 hello_world <- function() .Call(wrap__hello_world)
 
+Source <- new.env(parent = emptyenv())
+
+Source$new <- function(path) .Call(wrap__Source__new, path)
+
+Source$path <- function() .Call(wrap__Source__path, self)
+
+Source$stuffs <- function() .Call(wrap__Source__stuffs, self)
+
+#' @export
+`$.Source` <- function (self, name) { func <- Source[[name]]; environment(func) <- environment(); func }
+
+#' @export
+`[[.Source` <- `$.Source`
+
