@@ -38,11 +38,14 @@ extendr_module! {
 #[cfg(test)]
 mod test {
     use super::*;
+    use extendr_api::prelude::*;
 
     #[test]
     fn test_source() {
-        let source = Source::new(String::from("source path"));
-        assert_eq!(source.path(), String::from("source path"));
-        assert_eq!(source.stuffs().elt(1), "THING");
+        test! {
+            let source = Source::new(String::from("source path"));
+            assert_eq!(source.path(), String::from("source path"));
+            assert_eq!(source.stuffs().elt(0), "THING");
+        }
     }
 }

@@ -8,3 +8,7 @@ crate-type = [ 'staticlib' ]
 
 [dependencies]
 extendr-api = { git = "https://github.com/extendr/extendr", branch = "master" }
+
+
+[dev-dependencies]
+extendr-engine = { path = "../../../extendr/extendr-engine/"}
